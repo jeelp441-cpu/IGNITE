@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignite Exim — Global Import & Export Solutions</title>
+    <meta name="description"
+        content="Ignite Exim is a leading import-export company providing seamless global trade solutions, logistics, customs clearance, and supply chain management worldwide.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="logo.png" alt="Ignite Exim Logo" class="logo-img">
+                <span class="logo-text">IGNITE <span class="logo-accent">EXIM</span></span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#global" class="nav-link">Products</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get a Quote</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🌍 Your Global Trade Partner</div>
+            <h1 class="hero-title">
+                Seamless <span class="gradient-text">Import</span> &<br>
+                <span class="gradient-text-alt">Export</span> Solutions
+            </h1>
+            <p class="hero-subtitle">
+                Connecting businesses across borders with reliable logistics, customs expertise,
+                and end-to-end supply chain management. We make global trade simple, fast, and efficient.
+            </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">
+                    <span>Our Services</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <span>Request a Quote</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="20"></span><span class="stat-plus">+</span>
+                    <span class="stat-label">Countries Served</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="250">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Shipments Delivered</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-glow"></div>
+            <div class="floating-card card-1">
+                <div class="card-icon">🚢</div>
+                <span>Sea Freight</span>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-icon">✈️</div>
+                <span>Air Cargo</span>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-icon">🛃</div>
+                <span>Customs Cleared</span>
+            </div>
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring orbit-ring-2"></div>
+        </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-item">✦ Global Trade Solutions</span>
+            <span class="marquee-item">✦ Import & Export</span>
+            <span class="marquee-item">✦ Sea Freight</span>
+            <span class="marquee-item">✦ Air Cargo</span>
+            <span class="marquee-item">✦ Customs Clearance</span>
+            <span class="marquee-item">✦ Warehousing</span>
+            <span class="marquee-item">✦ 40+ Countries</span>
+            <span class="marquee-item">✦ Global Trade Solutions</span>
+            <span class="marquee-item">✦ Import & Export</span>
+            <span class="marquee-item">✦ Sea Freight</span>
+            <span class="marquee-item">✦ Air Cargo</span>
+            <span class="marquee-item">✦ Customs Clearance</span>
+            <span class="marquee-item">✦ Warehousing</span>
+            <span class="marquee-item">✦ 40+ Countries</span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2 class="section-title">Your Trusted <span class="gradient-text">Trade Partner</span></h2>
+                <p class="section-desc">With over a decade of experience, Ignite Exim bridges markets across continents
+                    — delivering goods safely, swiftly, and compliantly.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To empower businesses of all sizes to trade globally with confidence, providing reliable
+                        import-export solutions, transparent pricing, and on-time delivery across every border.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon">🌐</div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted global trade facilitator, making international commerce accessible,
+                        efficient, and seamless for businesses worldwide.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon">💎</div>
+                    <h3>Our Values</h3>
+                    <p>Integrity, reliability, and transparency are the cornerstones of every shipment. We treat every
+                        client's cargo as our own — with care, precision, and accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">End-to-End <span class="gradient-text">Trade</span> Services</h2>
+                <p class="section-desc">From sourcing to delivery, we handle every aspect of your international trade
+                    operations.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">📦</div>
+                    <h3>Import Services</h3>
+                    <p>Comprehensive import solutions — from product sourcing and vendor management to customs clearance
+                        and last-mile delivery.</p>
+                    <ul class="service-features">
+                        <li>Product Sourcing & Procurement</li>
+                        <li>Import Documentation</li>
+                        <li>Duty & Tax Management</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card featured">
+                    <div class="featured-badge">Core Service</div>
+                    <div class="service-number">02</div>
+                    <div class="service-icon">🌍</div>
+                    <h3>Export Services</h3>
+                    <p>We help you reach international markets with streamlined export operations, compliance
+                        management, and competitive freight solutions.</p>
+                    <ul class="service-features">
+                        <li>Market Entry Strategy</li>
+                        <li>Export Licensing & Compliance</li>
+                        <li>International Shipping</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">🚢</div>
+                    <h3>Freight & Logistics</h3>
+                    <p>Multi-modal freight solutions — sea, air, and land — optimized for cost, speed, and reliability
+                        to suit your specific needs.</p>
+                    <ul class="service-features">
+                        <li>Ocean Freight (FCL/LCL)</li>
+                        <li>Air Cargo Services</li>
+                        <li>Inland Transportation</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">🛃</div>
+                    <h3>Customs Clearance</h3>
+                    <p>Expert customs brokerage services ensuring hassle-free clearance, full regulatory compliance, and
+                        minimal delays at every port.</p>
+                    <ul class="service-features">
+                        <li>Customs Documentation</li>
+                        <li>Tariff Classification</li>
+                        <li>Regulatory Compliance</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <div class="service-icon">🏭</div>
+                    <h3>Warehousing</h3>
+                    <p>Secure, climate-controlled warehousing and distribution centers strategically located near major
+                        trade hubs and ports.</p>
+                    <ul class="service-features">
+                        <li>Bonded Warehousing</li>
+                        <li>Inventory Management</li>
+                        <li>Order Fulfillment</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">06</div>
+                    <div class="service-icon">📋</div>
+                    <h3>Trade Consulting</h3>
+                    <p>Strategic guidance on international trade regulations, market entry, risk mitigation, and supply
+                        chain optimization.</p>
+                    <ul class="service-features">
+                        <li>Trade Compliance Advisory</li>
+                        <li>Risk Assessment</li>
+                        <li>Supply Chain Strategy</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach Section -->
+    <section class="section portfolio" id="global">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Products</span>
+                <h2 class="section-title">Products We <span class="gradient-text">Export</span></h2>
+                <p class="section-desc">We source and export premium-quality products to global markets, ensuring
+                    freshness, compliance, and timely delivery.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card portfolio-large">
+                    <div class="portfolio-image"
+                        style="background: linear-gradient(135deg, rgba(247,147,30,0.4), rgba(255,107,53,0.4)), url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80') center/cover no-repeat;">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Grains</span>
+                            <h3>Rice</h3>
+                            <p>Premium Basmati & Non-Basmati rice varieties exported to 30+ countries worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image"
+                        style="background: linear-gradient(135deg, rgba(79,172,254,0.4), rgba(0,242,254,0.4)), url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80') center/cover no-repeat;">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Industrial</span>
+                            <h3>Machinery</h3>
+                            <p>Heavy-duty & precision machinery for global industries</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image"
+                        style="background: linear-gradient(135deg, rgba(240,147,251,0.4), rgba(245,87,108,0.4)), url('https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=800&q=80') center/cover no-repeat;">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Snacks</span>
+                            <h3>Fryum</h3>
+                            <p>Ready-to-fry snack pellets in diverse shapes & flavors</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image"
+                        style="background: linear-gradient(135deg, rgba(212,160,74,0.4), rgba(232,194,116,0.4)), url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80') center/cover no-repeat;">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Grains</span>
+                            <h3>Wheat</h3>
+                            <p>High-quality wheat & wheat flour for international markets</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card portfolio-large">
+                    <div class="portfolio-image"
+                        style="background: linear-gradient(135deg, rgba(67,233,123,0.4), rgba(56,249,215,0.4)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80') center/cover no-repeat;">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Spices</span>
+                            <h3>Spices</h3>
+                            <p>Authentic Indian spices — turmeric, cumin, chili, coriander & more, sourced farm-fresh
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our <span class="gradient-text">Clients</span> Say</h2>
+                <p class="section-desc">Trusted by businesses across industries for reliable global trade solutions.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Ignite Exim handled our entire spice export operation flawlessly. From
+                        documentation to delivery, everything was seamless. Our shipments always arrive on time!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #ff6b35, #f7931e);">RP
+                        </div>
+                        <div>
+                            <h4>Rajesh Patel</h4>
+                            <span>Director, AgroSpice Exports</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Their customs clearance expertise saved us weeks of delays. The team is
+                        incredibly knowledgeable about international trade regulations. A true partner in growth!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">AM
+                        </div>
+                        <div>
+                            <h4>Anita Mehta</h4>
+                            <span>CEO, GlobalTex Industries</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We've been working with Ignite Exim for 5 years now. Their freight
+                        rates are competitive and their tracking system keeps us informed every step of the way."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">DS
+                        </div>
+                        <div>
+                            <h4>David Schmidt</h4>
+                            <span>VP Supply Chain, EuroTech GmbH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-glow"></div>
+                <h2>Ready to <span class="gradient-text">Go Global</span>?</h2>
+                <p>Whether you're importing raw materials or exporting finished goods, we've got the expertise to move
+                    your cargo across the world.</p>
+                <a href="#contact" class="btn btn-primary btn-large">
+                    <span>Get a Free Quote</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's <span class="gradient-text">Trade</span> Together</h2>
+                <p class="section-desc">Have a shipment in mind? Request a quote or reach out for a consultation.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item glass-card">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>igniteexim19@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glass-card">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 7978256670</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glass-card">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Head Office</h4>
+                            <p>Rajkot,Gujarat India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter" target="_blank"
+                            rel="noopener noreferrer">𝕏</a>
+                        <a href="https://www.linkedin.com/in/ignite-exim-11252a406" class="social-link"
+                            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+                        <a href="https://www.instagram.com/ignite_exim" class="social-link" aria-label="Instagram"
+                            target="_blank" rel="noopener noreferrer">📷</a>
+                        <a href="#" class="social-link" aria-label="WhatsApp" target="_blank"
+                            rel="noopener noreferrer">💬</a>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" id="contact-form">
+                    <input type="hidden" name="access_key" value="074ac125-a118-4b84-ad70-5ea65cc333d5">
+                    <input type="hidden" name="from_name" value="Ignite Exim Website">
+                    <input type="hidden" name="subject" value="New Quote Inquiry — Ignite Exim">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Import/Export Inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Tell us about your shipment requirements, product type, origin/destination..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                        <span>Send Inquiry</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <img src="logo.png" alt="Ignite Exim Logo" class="logo-img">
+                        <span class="logo-text">IGNITE <span class="logo-accent">EXIM</span></span>
+                    </a>
+                    <p>Your trusted partner in global trade. Connecting businesses across borders with reliable
+                        import-export solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#global">Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Import Services</a></li>
+                        <li><a href="#services">Export Services</a></li>
+                        <li><a href="#services">Freight & Logistics</a></li>
+                        <li><a href="#services">Customs Clearance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:igniteexim19@gmail.com">igniteexim19@gmail.com</a></li>
+                        <li><a href="tel:+917978256670">+91 7978256670</a></li>
+                        <li><a href="#contact">Get a Quote</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ignite Exim. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
