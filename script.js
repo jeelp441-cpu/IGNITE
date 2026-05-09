@@ -2,9 +2,71 @@
 const glow = document.createElement('div');
 glow.classList.add('cursor-glow');
 document.body.appendChild(glow);
+
+// ===== Cursor Ring =====
+const ring = document.createElement('div');
+ring.classList.add('cursor-ring');
+document.body.appendChild(ring);
+
+// Smooth ring follow
+let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
+function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// ===== Cursor Sparkle Trail =====
+const sparkleColors = [
+    'rgba(192,121,42,0.7)',
+    'rgba(212,160,74,0.6)',
+    'rgba(232,194,116,0.5)',
+    'rgba(180,140,80,0.5)',
+    'rgba(255,200,100,0.4)'
+];
+let lastSparkle = 0;
+
+function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('cursor-sparkle');
+    const size = Math.random() * 6 + 3;
+    sparkle.style.width = size + 'px';
+    sparkle.style.height = size + 'px';
+    sparkle.style.left = x + (Math.random() - 0.5) * 20 + 'px';
+    sparkle.style.top = y + (Math.random() - 0.5) * 20 + 'px';
+    sparkle.style.background = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+    sparkle.style.boxShadow = `0 0 ${size + 2}px ${sparkle.style.background}`;
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 800);
+}
+
 document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
+
+    // Throttle sparkles for performance
+    const now = Date.now();
+    if (now - lastSparkle > 40) {
+        createSparkle(e.clientX, e.clientY);
+        lastSparkle = now;
+    }
+});
+
+// ===== Hover Detection for Ring =====
+document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button, .service-card, .portfolio-card, .social-link, .nav-toggle, input, textarea')) {
+        ring.classList.add('hovering');
+    }
+});
+document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button, .service-card, .portfolio-card, .social-link, .nav-toggle, input, textarea')) {
+        ring.classList.remove('hovering');
+    }
 });
 
 // ===== Particle Background =====
@@ -23,8 +85,8 @@ class Particle {
         this.size = Math.random() * 1.5 + 0.3;
         this.speedX = (Math.random() - 0.5) * 0.3;
         this.speedY = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.4 + 0.05;
-        this.color = Math.random() > 0.5 ? '212,160,74' : '232,194,116';
+        this.opacity = Math.random() * 0.2 + 0.04;
+        this.color = Math.random() > 0.5 ? '192,121,42' : '180,140,80';
     }
     update() {
         this.x += this.speedX;
@@ -53,7 +115,7 @@ function animateParticles() {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(212,160,74,${0.04 * (1 - dist / 140)})`;
+                ctx.strokeStyle = `rgba(192,121,42,${0.03 * (1 - dist / 140)})`;
                 ctx.lineWidth = 0.5;
                 ctx.stroke();
             }
