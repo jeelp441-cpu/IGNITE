@@ -1,215 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignite Exim — Premium Import & Export from India</title>
-    <meta name="description" content="Ignite Exim — India's premier import-export company. Premium Rice, Spices, Wheat, Machinery & Fryum exported worldwide.">
-    <link rel="icon" type="image/png" href="logo.PNG">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ignite Exim — Premium Import & Export from India</title>
+<meta name="description" content="Ignite Exim exports premium Rice, Spices, Wheat, Roasted Clay and Fryum from India to 20+ countries.">
+<link rel="icon" type="image/png" href="logo.PNG">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="loader"><img src="logo.PNG" alt="Ignite Exim"></div>
+<div id="bar"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="logo.PNG" alt="Ignite Exim" class="logo-img">
-                <div class="logo-text">IGNITE<span>EXIM</span></div>
-            </a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#products" class="nav-link">Our Products</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="tel:+917978256670" class="nav-contact">📞 +91 7978256670</a>
-                <a href="#contact" class="inquiry-btn">Inquiry Now</a>
-            </div>
-            <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
-        </div>
-    </nav>
+<nav class="nav" id="nav"><div class="container">
+  <a href="#home" class="logo"><img src="logo.PNG" alt="Ignite Exim logo"><span class="lt">IGNITE <b>EXIM</b></span></a>
+  <ul class="links" id="links">
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#products">Products</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-r"><a href="tel:+917978256670" class="tel">+91 7978256670</a><a href="#contact" class="btn">Inquiry now</a></div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="home">
-        <div class="slide slide-active" style="background-image:url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80')">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <p class="slide-tag">India's Trusted Export Partner</p>
-                <h1>Quality Products<br>Fresh From <span>Indian Fields</span></h1>
-                <p class="slide-desc">We export premium Basmati Rice, Spices, Wheat & more to 20+ countries worldwide.</p>
-                <div class="slide-btns"><a href="#contact" class="btn-primary">Inquiry Now</a><a href="#products" class="btn-outline">Our Products</a></div>
-            </div>
-        </div>
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1600&q=80')">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <p class="slide-tag">Premium Agricultural Exports</p>
-                <h1>Connecting <span>Indian Farms</span><br>to Global Markets</h1>
-                <p class="slide-desc">Trusted supplier of rice, wheat, spices, fryum, and industrial machinery.</p>
-                <div class="slide-btns"><a href="#contact" class="btn-primary">Get a Quote</a><a href="#about" class="btn-outline">Learn More</a></div>
-            </div>
-        </div>
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&q=80')">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <p class="slide-tag">Authentic Indian Spices</p>
-                <h1>The Finest <span>Spices & Grains</span><br>Delivered Worldwide</h1>
-                <p class="slide-desc">Turmeric, Cumin, Chili, Coriander — sourced directly from Indian farms.</p>
-                <div class="slide-btns"><a href="#contact" class="btn-primary">Inquiry Now</a><a href="#products" class="btn-outline">View Products</a></div>
-            </div>
-        </div>
-        <div class="slider-dots" id="slider-dots"></div>
-        <button class="slider-arrow slider-prev" id="slider-prev">❮</button>
-        <button class="slider-arrow slider-next" id="slider-next">❯</button>
-    </section>
+<header class="hero" id="home">
+  <div class="slide on" style="background-image:url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80')"><div class="sc">
+    <h1><span class="ln"><span>Quality products</span></span><span class="ln"><em>fresh from Indian fields</em></span></h1>
+    <p>Premium Basmati rice, spices, wheat and more, shipped to over 20 countries.</p>
+    <div class="sb"><a href="#contact" class="btn">Inquiry now</a><a href="#products" class="btn ghost">Our products</a></div></div></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1600&q=80')"><div class="sc">
+    <h1><span class="ln"><span>Connecting Indian farms</span></span><span class="ln"><em>to global markets</em></span></h1>
+    <p>A trusted supplier of rice, wheat, spices, fryum and roasted clay.</p>
+    <div class="sb"><a href="#contact" class="btn">Get a quote</a><a href="#about" class="btn ghost">Learn more</a></div></div></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&q=80')"><div class="sc">
+    <h1><span class="ln"><span>The finest spices and grains</span></span><span class="ln"><em>delivered worldwide</em></span></h1>
+    <p>Turmeric, cumin, chili and coriander, sourced directly from Indian farms.</p>
+    <div class="sb"><a href="#contact" class="btn">Inquiry now</a><a href="#products" class="btn ghost">View products</a></div></div></div>
+  <div class="blobs"><i></i><i></i><i></i></div>
+  <button class="arr prev" id="prev" aria-label="Previous">❮</button><button class="arr next" id="next" aria-label="Next">❯</button>
+  <div class="dots" id="dots"></div>
+</header>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-img"><img src="logo.PNG" alt="Ignite Exim Office"></div>
-                <div class="about-text">
-                    <p class="section-tag">About Our Company</p>
-                    <h2 class="section-title">Welcome to <span>Ignite Exim</span></h2>
-                    <p>Established with a vision to bridge Indian agriculture with global markets, Ignite Exim is a trusted import-export company based in Rajkot, Gujarat. We specialize in exporting premium quality Rice, Spices, Wheat, Fryum, and Industrial Machinery to over 20 countries.</p>
-                    <p>Our commitment to quality, competitive pricing, and timely delivery has earned us the trust of international buyers across Asia, Africa, the Middle East, and Europe.</p>
-                    <div class="about-badges">
-                        <div class="badge-item"><strong>FSSAI</strong><small>Certified</small></div>
-                        <div class="badge-item"><strong>APEDA</strong><small>Registered</small></div>
-                        <div class="badge-item"><strong>IEC</strong><small>Licensed</small></div>
-                    </div>
-                    <a href="#contact" class="btn-primary">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mq"><div id="mqt"><span>Basmati Rice</span><span>✦</span><span>Indian Spices</span><span>✦</span><span>Wheat & Flour</span><span>✦</span><span>Roasted Clay</span><span>✦</span><span>Fryum & Snacks</span><span>✦</span></div></div>
 
-    <!-- Why Choose Us -->
-    <section class="section section-gray" id="why">
-        <div class="container">
-            <div class="section-header"><p class="section-tag">Why Choose Us</p><h2 class="section-title">What Makes Us <span>Different</span></h2></div>
-            <div class="features-grid">
-                <div class="feature-card"><div class="feature-icon">✅</div><h3>Quality Assurance</h3><p>Every shipment undergoes rigorous quality checks meeting international food safety standards.</p></div>
-                <div class="feature-card"><div class="feature-icon">🚚</div><h3>Timely Delivery</h3><p>Reliable logistics network ensuring on-time delivery to any port worldwide.</p></div>
-                <div class="feature-card"><div class="feature-icon">💰</div><h3>Competitive Pricing</h3><p>Direct farm sourcing eliminates middlemen, giving you the best market prices.</p></div>
-                <div class="feature-card"><div class="feature-icon">🌾</div><h3>Farm Fresh Sourcing</h3><p>Products sourced directly from Indian farms ensuring freshness and authenticity.</p></div>
-            </div>
-        </div>
-    </section>
+<section class="sec" id="about"><div class="container ab rv">
+  <div class="ab-img"><img src="logo.PNG" alt="Ignite Exim"></div>
+  <div>
+    <h2>Welcome to Ignite Exim</h2>
+    <p>Ignite Exim is an import-export company based in Rajkot, Gujarat. We bridge Indian agriculture with global markets, exporting premium Rice, Spices, Wheat, Fryum and Roasted Clay to over 20 countries.</p>
+    <p>Quality checks, competitive pricing and on-time delivery have earned us the trust of buyers across Asia, Africa, the Middle East and Europe.</p>
+    <div class="badges"><span><b>FSSAI</b>Certified</span><span><b>APEDA</b>Registered</span><span><b>IEC</b>Licensed</span></div>
+    <a href="#contact" class="btn">Contact us</a>
+  </div>
+</div></section>
 
-    <!-- Products -->
-    <section class="section" id="products">
-        <div class="container">
-            <div class="section-header"><p class="section-tag">Our Products</p><h2 class="section-title">Premium Indian <span>Exports</span></h2></div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80')"><span class="product-badge">Best Seller</span></div>
-                    <div class="product-info"><h3>Basmati Rice</h3><p>Premium long-grain Basmati & Non-Basmati rice varieties exported to 30+ countries.</p><a href="#contact" class="btn-small">Inquiry Now →</a></div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80')"></div>
-                    <div class="product-info"><h3>Indian Spices</h3><p>Authentic turmeric, cumin, chili, coriander, and custom spice blends.</p><a href="#contact" class="btn-small">Inquiry Now →</a></div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80')"></div>
-                    <div class="product-info"><h3>Wheat & Flour</h3><p>High-quality wheat grains and processed flour for international markets.</p><a href="#contact" class="btn-small">Inquiry Now →</a></div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image:url('https://thfvnext.bing.com/th/id/OIP.zFtEncMeiCxDp920DX60WgHaE8?w=270&h=180&c=7&r=0&o=7&cb=thfvnextfalcon2&pid=1.7&rm=3')"></div>
-                    <div class="product-info"><h3>Roasted Clay</h3><p>High-quality grade roasted clay</p><a href="#contact" class="btn-small">Inquiry Now →</a></div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&q=80')"></div>
-                    <div class="product-info"><h3>Fryum & Snacks</h3><p>Ready-to-fry snack pellets in various shapes, flavors, and pack sizes.</p><a href="#contact" class="btn-small">Inquiry Now →</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="sec alt" id="why"><div class="container">
+  <div class="sh rv"><h2>What makes us different</h2></div>
+  <div class="grid">
+    <div class="card rv"><div class="ic">✅</div><h3>Quality assurance</h3><p>Every shipment passes strict checks that meet international food safety standards.</p></div>
+    <div class="card rv"><div class="ic">🚚</div><h3>Timely delivery</h3><p>A dependable logistics network gets your order to any port on schedule.</p></div>
+    <div class="card rv"><div class="ic">💰</div><h3>Competitive pricing</h3><p>Direct farm sourcing removes middlemen and keeps prices fair.</p></div>
+    <div class="card rv"><div class="ic">🌾</div><h3>Farm-fresh sourcing</h3><p>Products come straight from Indian farms, fresh and authentic.</p></div>
+  </div>
+</div></section>
 
-    <!-- Stats Counter -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-box"><div class="stat-num" data-target="3">0</div><p>Years Experience</p></div>
-                <div class="stat-box"><div class="stat-num" data-target="20">0</div><p>Countries Exported</p></div>
-                <div class="stat-box"><div class="stat-num" data-target="250">0</div><p>Shipments Delivered</p></div>
-                <div class="stat-box"><div class="stat-num" data-target="5">0</div><p>Product Categories</p></div>
-            </div>
-        </div>
-    </section>
+<section class="sec" id="products"><div class="container">
+  <div class="sh rv"><h2>Premium Indian exports</h2><p>Hover over a product to take a closer look.</p></div>
+  <div class="pg">
+    <div class="card p rv"><div class="pi"><div style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=700&q=80')"></div><span class="tag">Best seller</span></div><div class="pt"><h3>Basmati Rice</h3><p>Premium long-grain Basmati and non-Basmati rice, exported to 30+ countries.</p><a href="#contact" class="more">Inquiry now</a></div></div>
+    <div class="card p rv"><div class="pi"><div style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=700&q=80')"></div></div><div class="pt"><h3>Indian Spices</h3><p>Authentic turmeric, cumin, chili, coriander and custom spice blends.</p><a href="#contact" class="more">Inquiry now</a></div></div>
+    <div class="card p rv"><div class="pi"><div style="background-image:url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=700&q=80')"></div></div><div class="pt"><h3>Wheat & Flour</h3><p>High-quality wheat grains and processed flour.</p><a href="#contact" class="more">Inquiry now</a></div></div>
+    <div class="card p rv"><div class="pi"><div style="background-image:linear-gradient(135deg,#5a2208,#c4611f 55%,#8a3b12)"></div></div><div class="pt"><h3>Roasted Clay</h3><p>High-quality grade roasted clay.</p><a href="#contact" class="more">Inquiry now</a></div></div>
+    <div class="card p rv"><div class="pi"><div style="background-image:url('https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=700&q=80')"></div></div><div class="pt"><h3>Fryum & Snacks</h3><p>Ready-to-fry snack pellets in many shapes, flavors and pack sizes.</p><a href="#contact" class="more">Inquiry now</a></div></div>
+  </div>
+</div></section>
 
-    <!-- Services -->
-    <section class="section section-gray" id="services">
-        <div class="container">
-            <div class="section-header"><p class="section-tag">Our Services</p><h2 class="section-title">End-to-End <span>Trade Solutions</span></h2></div>
-            <div class="services-grid">
-                <div class="service-card"><div class="service-icon">📥</div><h3>Import Services</h3><p>Complete import solutions — sourcing, vendor management, customs clearance & doorstep delivery.</p></div>
-                <div class="service-card"><div class="service-icon">📤</div><h3>Export Services</h3><p>We take Indian products to the world with streamlined operations and compliance.</p></div>
-                <div class="service-card"><div class="service-icon">📋</div><h3>Customs & Documentation</h3><p>Expert customs brokerage, complete documentation, and zero-delay clearance.</p></div>
-                <div class="service-card"><div class="service-icon">🔍</div><h3>Quality Inspection</h3><p>Rigorous pre-shipment quality checks meeting FSSAI, FDA & international standards.</p></div>
-            </div>
-        </div>
-    </section>
+<section class="stats"><div class="container grid">
+  <div class="rv"><div class="num" data-t="1">0</div>Years of experience</div>
+  <div class="rv"><div class="num" data-t="20">0</div>Countries we export</div>
+  <div class="rv"><div class="num" data-t="10">0</div>Shipments delivered</div>
+  <div class="rv"><div class="num" data-t="5">0</div>Product categories</div>
+</div></section>
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <h2>Ready to Trade <span>Globally?</span></h2>
-            <p>Get competitive pricing and reliable supply for premium Indian agricultural products.</p>
-            <a href="#contact" class="btn-primary btn-lg">Get a Free Quote →</a>
-        </div>
-    </section>
+<section class="sec alt" id="services"><div class="container">
+  <div class="sh rv"><h2>End-to-end trade solutions</h2></div>
+  <div class="grid">
+    <div class="card rv"><div class="ic">📥</div><h3>Import services</h3><p>Sourcing, vendor management, customs clearance and doorstep delivery.</p></div>
+    <div class="card rv"><div class="ic">📤</div><h3>Export services</h3><p>Streamlined operations and compliance to take Indian products worldwide.</p></div>
+    <div class="card rv"><div class="ic">📋</div><h3>Customs & documentation</h3><p>Expert brokerage and complete paperwork for smooth clearance.</p></div>
+    <div class="card rv"><div class="ic">🔍</div><h3>Quality inspection</h3><p>Pre-shipment checks that meet FSSAI, FDA and international standards.</p></div>
+  </div>
+</div></section>
 
-    <!-- Contact -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header"><p class="section-tag">Get in Touch</p><h2 class="section-title">Contact <span>Us</span></h2></div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-card"><div class="cc-icon">📧</div><div><strong>Email Us</strong><p>igniteexim19@gmail.com</p></div></div>
-                    <div class="contact-card"><div class="cc-icon">📞</div><div><strong>Call Us</strong><p>+91 7978256670</p></div></div>
-                    <div class="contact-card"><div class="cc-icon">📍</div><div><strong>Head Office</strong><p>Rajkot, Gujarat, India</p></div></div>
-                    <div class="contact-social">
-                        <a href="https://www.instagram.com/ignite_exim" target="_blank" class="social-btn">📷 Instagram</a>
-                        <a href="https://www.linkedin.com/in/ignite-exim-11252a406" target="_blank" class="social-btn">in LinkedIn</a>
-                    </div>
-                </div>
-                <form class="contact-form" id="contact-form">
-                    <input type="hidden" name="access_key" value="074ac125-a118-4b84-ad70-5ea65cc333d5">
-                    <input type="hidden" name="from_name" value="Ignite Exim Website">
-                    <input type="hidden" name="subject" value="New Inquiry — Ignite Exim">
-                    <div class="form-row"><input type="text" name="name" placeholder="Your Name *" required><input type="email" name="email" placeholder="Your Email *" required></div>
-                    <input type="text" name="phone" placeholder="Phone Number">
-                    <input type="text" name="product" placeholder="Product Interested In">
-                    <textarea name="message" rows="5" placeholder="Your Message *" required></textarea>
-                    <button type="submit" class="btn-primary btn-full" id="submit-btn">Send Inquiry →</button>
-                </form>
-            </div>
-        </div>
-    </section>
+<section class="cta"><div class="container rv"><h2>Ready to trade globally?</h2><p>Get competitive pricing and reliable supply of premium Indian products.</p><a href="#contact" class="btn">Get a free quote</a></div></section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo"><img src="logo.PNG" alt="Ignite Exim" class="logo-img"><div class="logo-text">IGNITE<span>EXIM</span></div></div>
-                    <p>Connecting Indian agriculture with global markets through reliable, quality-focused import-export solutions.</p>
-                </div>
-                <div class="footer-col"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#products">Our Products</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
-                <div class="footer-col"><h4>Our Products</h4><a href="#products">Basmati Rice</a><a href="#products">Indian Spices</a><a href="#products">Wheat & Flour</a><a href="#products">Roasted Clay</a><a href="#products">Fryum</a></div>
-                <div class="footer-col"><h4>Contact Info</h4><p>📍 Rajkot, Gujarat, India</p><p>📞 +91 7978256670</p><p>📧 igniteexim19@gmail.com</p></div>
-            </div>
-            <div class="footer-bottom"><p>© 2026 Ignite Exim. All Rights Reserved.</p><p>Designed with ❤️ in India</p></div>
-        </div>
-    </footer>
+<section class="sec" id="contact"><div class="container">
+  <div class="sh rv"><h2>Send us a message</h2><p>Your message goes straight to our inbox. We reply by email.</p></div>
+  <div class="cg">
+    <div class="ci">
+      <div class="card rv"><div class="ic">📧</div><div><strong>Email</strong><p>igniteexim19@gmail.com</p></div></div>
+      <div class="card rv"><div class="ic">📞</div><div><strong>Call</strong><p>+91 7978256670</p></div></div>
+      <div class="card rv"><div class="ic">📍</div><div><strong>Head office</strong><p>Rajkot, Gujarat, India</p></div></div>
+      <div class="soc"><a href="https://www.instagram.com/ignite_exim" target="_blank" rel="noopener" class="btn ghost">Instagram</a><a href="https://www.linkedin.com/in/ignite-exim-11252a406" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a></div>
+    </div>
+    <form class="mail-form fm rv">
+      <input type="checkbox" name="botcheck" hidden>
+      <div class="row"><input name="name" placeholder="Your name *" required><input type="email" name="email" placeholder="Your email *" required></div>
+      <input name="phone" placeholder="Phone number">
+      <input name="product" placeholder="Product you are interested in">
+      <textarea name="message" rows="5" placeholder="Your message *" required></textarea>
+      <button class="btn" type="submit">Send inquiry</button>
+    </form>
+  </div>
+</div></section>
 
-    <script src="script.js"></script>
+<footer class="foot"><div class="container">
+  <div class="fg">
+    <div><a href="#home" class="logo"><img src="logo.PNG" alt=""><span class="lt">IGNITE <b>EXIM</b></span></a><p>Connecting Indian agriculture with global markets through reliable, quality-focused trade.</p></div>
+    <div><h4>Quick links</h4><a href="#about">About</a><a href="#products">Products</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+    <div><h4>Products</h4><a href="#products">Basmati Rice</a><a href="#products">Indian Spices</a><a href="#products">Wheat & Flour</a><a href="#products">Roasted Clay</a><a href="#products">Fryum</a></div>
+    <div><h4>Contact</h4><p>Rajkot, Gujarat, India</p><p>+91 7978256670</p><p>igniteexim19@gmail.com</p></div>
+  </div>
+  <div class="fb2"><p>© 2026 Ignite Exim. All rights reserved.</p></div>
+</div></footer>
+
+<div class="chat" id="chat">
+  <header><strong>Message Ignite Exim</strong><button id="chatX" aria-label="Close">✕</button></header>
+  <form class="mail-form">
+    <input type="checkbox" name="botcheck" hidden>
+    <input name="name" placeholder="Your name *" required>
+    <input type="email" name="email" placeholder="Your email *" required>
+    <textarea name="message" rows="4" placeholder="How can we help? *" required></textarea>
+    <button class="btn" type="submit">Send message</button>
+  </form>
+</div>
+<div class="fab">
+  <a class="fb wa" href="https://wa.me/917978256670" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <button class="fb msg" id="msgBtn" aria-label="Send a message">✉️</button>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
 </body>
 </html>

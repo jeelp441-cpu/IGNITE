@@ -1,317 +1,96 @@
 (() => {
   "use strict";
+  // Web3Forms access key: messages are emailed to the address this key was created with
+  const KEY = "074ac125-a118-4b84-ad70-5ea65cc333d5";
+  const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
 
-  /* ───────────────────────────────────────────────
-     1. HERO SLIDER
-     ─────────────────────────────────────────────── */
-  const initSlider = () => {
-    const slides = document.querySelectorAll(".slide");
-    const dotsContainer = document.getElementById("slider-dots");
-    const prevBtn = document.getElementById("slider-prev");
-    const nextBtn = document.getElementById("slider-next");
-    if (!slides.length || !dotsContainer) return;
+  addEventListener("load", () => setTimeout(() => $("#loader").classList.add("done"), 700));
 
-    let current = 0;
-    let interval = null;
-    let paused = false;
-    const DELAY = 5000;
+  // Scroll: navbar, progress bar, active link
+  const nav = $("#nav"), bar = $("#bar"), secs = $$("section[id]"), links = $$(".links a");
+  const onScroll = () => {
+    const y = scrollY;
+    nav.classList.toggle("scrolled", y > 20);
+    bar.style.width = (y / (document.body.scrollHeight - innerHeight)) * 100 + "%";
+    let id = "";
+    secs.forEach(s => { if (s.offsetTop <= y + 160) id = s.id; });
+    links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+  };
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-    // Build dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => goTo(i));
-      dotsContainer.appendChild(dot);
-    });
+  // Mobile menu
+  const bg = $("#burger"), ul = $("#links");
+  bg.onclick = () => { bg.classList.toggle("open"); ul.classList.toggle("open"); };
+  links.forEach(a => a.addEventListener("click", () => { bg.classList.remove("open"); ul.classList.remove("open"); }));
 
-    const dots = dotsContainer.querySelectorAll(".dot");
+  // Hero slider
+  const slides = $$(".slide"), dotBox = $("#dots"), hero = $("#home");
+  let cur = 0, paused = false, timer;
+  slides.forEach((_, i) => { const d = document.createElement("span"); d.className = "dot" + (i ? "" : " active"); d.onclick = () => { go(i); restart(); }; dotBox.appendChild(d); });
+  const dots = $$(".dot");
+  const go = n => {
+    const old = slides[cur]; old.classList.add("out"); setTimeout(() => old.classList.remove("out"), 1400);
+    old.classList.remove("on"); dots[cur].classList.remove("active");
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add("on"); dots[cur].classList.add("active");
+  };
+  const restart = () => { clearInterval(timer); timer = setInterval(() => { if (!paused) go(cur + 1); }, 6500); };
+  $("#prev").onclick = () => { go(cur - 1); restart(); };
+  $("#next").onclick = () => { go(cur + 1); restart(); };
+  hero.onmouseenter = () => paused = true; hero.onmouseleave = () => paused = false;
+  restart();
 
-    const goTo = (index) => {
-      slides[current].classList.remove("slide-active");
-      dots[current].classList.remove("active");
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add("slide-active");
-      dots[current].classList.add("active");
+  // Hero headline: split into words for a staggered blur-in
+  $$(".ln>*").forEach(el => { el.innerHTML = el.textContent.trim().split(/\s+/).map((t, i) => `<span class="w" style="--i:${i}">${t}</span>`).join(" "); });
+
+  // Marquee: duplicate content for a seamless loop
+  const mq = $("#mqt"); mq.innerHTML += mq.innerHTML;
+
+  // Scroll reveal with stagger
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    el.style.setProperty("--d", [...el.parentNode.children].indexOf(el) * .1 + "s");
+    el.classList.add("in"); io.unobserve(el);
+  }), { threshold: .15 });
+  $$(".rv").forEach(el => io.observe(el));
+
+  // Counters
+  const run = el => {
+    const t = +el.dataset.t, t0 = performance.now();
+    const tick = now => {
+      const k = Math.min((now - t0) / 2000, 1);
+      el.textContent = Math.floor((1 - Math.pow(1 - k, 4)) * t) + "+";
+      if (k < 1) requestAnimationFrame(tick);
     };
+    requestAnimationFrame(tick);
+  };
+  const co = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { $$(".num").forEach(run); co.disconnect(); } }), { threshold: .4 });
+  co.observe($(".stats"));
 
-    const next = () => goTo(current + 1);
-    const prev = () => goTo(current - 1);
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      interval = setInterval(() => {
-        if (!paused) next();
-      }, DELAY);
-    };
-
-    const stopAutoplay = () => {
-      if (interval) clearInterval(interval);
-      interval = null;
-    };
-
-    // Pause on hover
-    const hero = slides[0]?.closest(".hero") || slides[0]?.parentElement;
-    if (hero) {
-      hero.addEventListener("mouseenter", () => (paused = true));
-      hero.addEventListener("mouseleave", () => (paused = false));
+  // Message box and contact form: emails you via Web3Forms
+  const toast = (m, err) => {
+    const t = $("#toast"); t.textContent = m; t.classList.toggle("err", !!err); t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 5000);
+  };
+  $("#msgBtn").onclick = () => $("#chat").classList.toggle("open");
+  $("#chatX").onclick = () => $("#chat").classList.remove("open");
+  $$(".mail-form").forEach(f => f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const b = $("button", f), old = b.textContent;
+    b.disabled = true; b.textContent = "Sending…";
+    const d = Object.fromEntries(new FormData(f));
+    Object.assign(d, { access_key: KEY, from_name: "Ignite Exim Website", subject: `New inquiry from ${d.name} — Ignite Exim` });
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) });
+      const j = await r.json();
+      if (!j.success) throw new Error(j.message);
+      f.reset(); $("#chat").classList.remove("open");
+      toast("Message sent. We will reply to your email soon.");
+    } catch {
+      toast("Message not sent. Please email igniteexim19@gmail.com directly.", true);
     }
-
-    prevBtn?.addEventListener("click", () => { prev(); startAutoplay(); });
-    nextBtn?.addEventListener("click", () => { next(); startAutoplay(); });
-
-    startAutoplay();
-  };
-
-  /* ───────────────────────────────────────────────
-     2 & 8. NAVBAR SCROLL (transparent → white)
-     ─────────────────────────────────────────────── */
-  const initNavbar = () => {
-    const navbar = document.getElementById("navbar");
-    if (!navbar) return;
-
-    const SCROLL_THRESHOLD = 10;
-
-    const onScroll = () => {
-      if (window.scrollY > SCROLL_THRESHOLD) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  };
-
-  /* ───────────────────────────────────────────────
-     SMOOTH SCROLL for anchor links
-     ─────────────────────────────────────────────── */
-  const initSmoothScroll = () => {
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const id = link.getAttribute("href");
-        if (id === "#" || id.length < 2) return;
-        const target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-  };
-
-  /* ───────────────────────────────────────────────
-     3. MOBILE MENU
-     ─────────────────────────────────────────────── */
-  const initMobileMenu = () => {
-    const toggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-    if (!toggle || !navLinks) return;
-
-    toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      navLinks.classList.toggle("active");
-    });
-
-    navLinks.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        toggle.classList.remove("active");
-        navLinks.classList.remove("active");
-      });
-    });
-  };
-
-  /* ───────────────────────────────────────────────
-     4. ACTIVE NAV on scroll
-     ─────────────────────────────────────────────── */
-  const initActiveNav = () => {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-    if (!sections.length || !navLinks.length) return;
-
-    const onScroll = () => {
-      const scrollPos = window.scrollY + 120;
-
-      let activeId = "";
-      sections.forEach((section) => {
-        if (section.offsetTop <= scrollPos) {
-          activeId = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${activeId}`) {
-          link.classList.add("active");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  };
-
-  /* ───────────────────────────────────────────────
-     5. SCROLL REVEAL (IntersectionObserver)
-     ─────────────────────────────────────────────── */
-  const initScrollReveal = () => {
-    const selectors = [
-      ".feature-card",
-      ".product-card",
-      ".service-card",
-      ".contact-card",
-      ".about-grid",
-      ".section-header",
-      ".stat-box",
-      ".contact-form",
-      ".cta-banner",
-    ];
-
-    const elements = document.querySelectorAll(selectors.join(", "));
-    if (!elements.length) return;
-
-    // Add .reveal to all target elements
-    elements.forEach((el) => el.classList.add("reveal"));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          const el = entry.target;
-          // Stagger children
-          const children = el.children;
-          if (children.length > 1) {
-            Array.from(children).forEach((child, i) => {
-              child.style.transitionDelay = `${i * 0.1}s`;
-            });
-          }
-
-          el.classList.add("active");
-          observer.unobserve(el);
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-  };
-
-  /* ───────────────────────────────────────────────
-     6. COUNTER ANIMATION
-     ─────────────────────────────────────────────── */
-  const initCounters = () => {
-    const statsSection = document.querySelector(".stats-section");
-    const statNums = document.querySelectorAll(".stat-num");
-    if (!statsSection || !statNums.length) return;
-
-    let animated = false;
-
-    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-
-    const animateCounter = (el) => {
-      const target = parseInt(el.dataset.target, 10);
-      if (isNaN(target)) return;
-
-      const duration = 2000;
-      const start = performance.now();
-
-      const tick = (now) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = Math.floor(easeOutQuart(progress) * target);
-
-        el.textContent = value + "+";
-
-        if (progress < 1) {
-          requestAnimationFrame(tick);
-        } else {
-          el.textContent = target + "+";
-        }
-      };
-
-      requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !animated) {
-            animated = true;
-            statNums.forEach(animateCounter);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(statsSection);
-  };
-
-  /* ───────────────────────────────────────────────
-     7. CONTACT FORM (Web3Forms)
-     ─────────────────────────────────────────────── */
-  const initContactForm = () => {
-    const form = document.getElementById("contact-form");
-    const submitBtn = document.getElementById("submit-btn");
-    if (!form || !submitBtn) return;
-
-    const originalText = submitBtn.textContent;
-
-    const resetBtn = () => {
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.style.backgroundColor = "";
-        submitBtn.style.color = "";
-        submitBtn.disabled = false;
-      }, 3000);
-    };
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-
-        if (res.ok) {
-          submitBtn.textContent = "✓ Sent!";
-          submitBtn.style.backgroundColor = "#16a34a";
-          submitBtn.style.color = "#fff";
-          form.reset();
-        } else {
-          throw new Error("Submission failed");
-        }
-      } catch {
-        submitBtn.textContent = "✕ Failed";
-        submitBtn.style.backgroundColor = "#dc2626";
-        submitBtn.style.color = "#fff";
-      }
-
-      resetBtn();
-    });
-  };
-
-  /* ───────────────────────────────────────────────
-     INIT
-     ─────────────────────────────────────────────── */
-  document.addEventListener("DOMContentLoaded", () => {
-    initSlider();
-    initNavbar();
-    initSmoothScroll();
-    initMobileMenu();
-    initActiveNav();
-    initScrollReveal();
-    initCounters();
-    initContactForm();
-  });
+    b.disabled = false; b.textContent = old;
+  }));
 })();
