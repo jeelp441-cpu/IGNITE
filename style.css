@@ -12,12 +12,6 @@ p{color:var(--mut)}
 .sh h2::after{content:"";display:block;height:4px;width:0;margin:16px auto 0;border-radius:4px;background:linear-gradient(90deg,var(--or),var(--gold));transition:width 1s .5s}
 .sh.in h2::after{width:90px}
 em{font-style:italic;color:var(--deep)}
-#loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;transition:visibility 0s 1.1s}
-#loader::before,#loader::after{content:"";position:absolute;left:0;width:100%;height:50%;background:#fff;transition:transform 1s cubic-bezier(.77,0,.18,1)}
-#loader::before{top:0}#loader::after{bottom:0}
-#loader img{position:relative;z-index:2;width:120px;border-radius:50%;animation:pulse 1.4s ease-in-out infinite;transition:opacity .4s}
-#loader.done{visibility:hidden}#loader.done::before{transform:translateY(-100%)}#loader.done::after{transform:translateY(100%)}#loader.done img{opacity:0}
-@keyframes pulse{50%{transform:scale(1.1);box-shadow:0 0 70px rgba(255,138,0,.55)}}
 #bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--or),var(--gold));z-index:1100}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:50px;font:700 1rem/1.2 Manrope,sans-serif;white-space:nowrap;background:linear-gradient(135deg,var(--or),var(--gold));color:var(--ink);border:0;cursor:pointer;position:relative;overflow:hidden;transition:.3s;box-shadow:0 8px 24px rgba(255,138,0,.35)}
 .btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,138,0,.5)}

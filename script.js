@@ -5,7 +5,6 @@
   const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
 
-  addEventListener("load", () => setTimeout(() => $("#loader").classList.add("done"), 700));
 
   // Scroll: navbar, progress bar, active link
   const nav = $("#nav"), bar = $("#bar"), secs = $$("section[id]"), links = $$(".links a");
